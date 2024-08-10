@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuesta - Autor Sociológico Favorito</title>
+</head>
+<body>
+    <h1>Encuesta: ¿Quién es tu autor sociológico favorito?</h1>
+    <form action="procesar_encuesta.php" method="POST">
+        <div>
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" min="18" max="100" required>
+        </div>
+        <div>
+            <label for="favorito">Selecciona tu autor favorito:</label>
+            <select id="favorito" name="favorito" required>
+                <option value="">--Seleccione un autor--</option>
+                <option value="marx">Karl Marx</option>
+                <option value="weber">Max Weber</option>
+                <option value="durkheim">Émile Durkheim</option>
+            </select>
+        </div>
+        <div>
+            <label for="motivo">¿Por qué es tu favorito?</label>
+            <textarea id="motivo" name="motivo" rows="4" cols="50" placeholder="Escribe tu razón aquí..."></textarea>
+        </div>
+        <div>
+            <p>Me preocupa cómo se puede mantener el orden social</p>
+            <input type="radio" id="orden1" name="orden" value="1"> 1
+            <input type="radio" id="orden2" name="orden" value="2"> 2
+            <input type="radio" id="orden3" name="orden" value="3"> 3
+            <input type="radio" id="orden4" name="orden" value="4"> 4
+            <input type="radio" id="orden5" name="orden" value="5"> 5
+        </div>
+        <div>
+            <p>Me interesa pensar el paso a una sociedad más libre y justa</p>
+            <input type="radio" id="justa1" name="justa" value="1"> 1
+            <input type="radio" id="justa2" name="justa" value="2"> 2
+            <input type="radio" id="justa3" name="justa" value="3"> 3
+            <input type="radio" id="justa4" name="justa" value="4"> 4
+            <input type="radio" id="justa5" name="justa" value="5"> 5
+        </div>
+        <div>
+            <p>Me pregunto sobre la cohesión social</p>
+            <input type="radio" id="durkheim1" name="durkheim" value="1"> 1
+            <input type="radio" id="durkheim2" name="durkheim" value="2"> 2
+            <input type="radio" id="durkheim3" name="durkheim" value="3"> 3
+            <input type="radio" id="durkheim4" name="durkheim" value="4"> 4
+            <input type="radio" id="durkheim5" name="durkheim" value="5"> 5
+        </div>
+        <div>
+            <button type="submit">Enviar Encuesta</button>
+
+            <p><a href="index.html">Volver al inicio</a></p>
+
+        </div>
+    </form>
+</body>
+</html>
