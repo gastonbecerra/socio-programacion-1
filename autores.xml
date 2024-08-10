@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autores>
+  <autor>
+    <nombre>Karl Marx</nombre>
+    <fecha_nacimiento>1818-05-05</fecha_nacimiento>
+    <fecha_fallecimiento>1883-03-14</fecha_fallecimiento>
+    <nacionalidad>Alemán</nacionalidad>
+    <conocido_por>
+      <teoria>Marxismo</teoria>
+      <teoria>Materialismo histórico</teoria>
+      <teoria>Teoría del conflicto</teoria>
+    </conocido_por>
+    <obras_principales>
+      <obra>El Manifiesto Comunista</obra>
+      <obra>El Capital</obra>
+    </obras_principales>
+  </autor>
+  <autor>
+    <nombre>Max Weber</nombre>
+    <fecha_nacimiento>1864-04-21</fecha_nacimiento>
+    <fecha_fallecimiento>1920-06-14</fecha_fallecimiento>
+    <nacionalidad>Alemán</nacionalidad>
+    <conocido_por>
+      <teoria>Burocracia</teoria>
+      <teoria>Racionalización</teoria>
+      <teoria>Ética protestante</teoria>
+    </conocido_por>
+    <obras_principales>
+      <obra>La ética protestante y el espíritu del capitalismo</obra>
+      <obra>Economía y sociedad</obra>
+    </obras_principales>
+  </autor>
+  <autor>
+    <nombre>Émile Durkheim</nombre>
+    <fecha_nacimiento>1858-04-15</fecha_nacimiento>
+    <fecha_fallecimiento>1917-11-15</fecha_fallecimiento>
+    <nacionalidad>Francés</nacionalidad>
+    <conocido_por>
+      <teoria>Hechos sociales</teoria>
+      <teoria>Anomia</teoria>
+      <teoria>Funcionalismo</teoria>
+    </conocido_por>
+    <obras_principales>
+      <obra>La división del trabajo social</obra>
+      <obra>El suicidio</obra>
+      <obra>Las formas elementales de la vida religiosa</obra>
+    </obras_principales>
+  </autor>
+</autores>
