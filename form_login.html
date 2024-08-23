@@ -2,13 +2,48 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Información Secreta de Autores Sociológicos</title>
+    <title>Información Secreta de Autores Sociológicos</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function comprobar() {
+            var author = document.getElementById("author").value; 
+            var password = document.getElementById("password").value;
+
+            var resultado = document.getElementById("resultado");
+
+            console.log('valor ingresado en autor = ' + author);
+            console.log('valor ingresado en pass = ' + password);
+            
+            if (author === "marx" && password === "capital") {
+                resultado.innerHTML = "Karl vivia mangueandole plata a Engels";
+            } else if (author === "weber" && password === "acción social") {
+                resultado.innerHTML = "Max era terrible depresivo, y si no hubiera sido por Marianne, que editó y dió orden a sus escritos, no lo conocería nadie.";
+            } else if (author === "durkheim" && password === "hecho social") {
+                resultado.innerHTML = "Nada. Emile fue todo lo que está bien en la vida.";
+            } else {
+                resultado.innerHTML = "<div class='error'>Error: La combinación de autor/contraseña no es correcta. " +
+                    "<br />Por favor, diríjase a su docente de teoría social.</div>";
+            }
+
+        }
+
+        function borremos() {
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = "";
+        }
+    </script>
 </head>
 <body>
-    <h1>Acceso a Información Secreta de Autores</h1>
-    <form action="" method="GET">
+    <h1>Información Secreta de Autores Sociológicos</h1>
+    <p>Utilice este formulario para acceder a información <i>top secret</i> de nuestros autores sociológicos.</p>
+    <p>Recuerde que el password es el concepto más conocido y elaborado de cada autor.</p>
+    <form action="javascript:void(0);" method="GET">
         <div>
-            <label for="author">Selecciona el Autor:</label>
+            <label for="author">Selecciona un Autor:</label>
             <select id="author" name="author" required>
                 <option value="">--Seleccione un autor--</option>
                 <option value="marx">Karl Marx</option>
@@ -21,9 +56,13 @@
             <input type="password" id="password" name="password" required>
         </div>
         <div>
-            <button type="submit">Ingresar</button>
-            <p><a href="index.html">Volver al inicio</a></p>
+            <p>
+                <input type="button" value="¡A darle átomos!" onclick="comprobar();" />
+                <input type="reset" value="Borremos" onclick="borremos();" />                
+            </p>
         </div>
     </form>
+    <div id="resultado"></div>
+    <p><a href="index.html">Volver al inicio</a></p>
 </body>
 </html>
