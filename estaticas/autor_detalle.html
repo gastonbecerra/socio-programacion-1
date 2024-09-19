@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Autores</title>
+</head>
+<body>
+    <div id="contenido"></div>
+
+    <script>
+        let selectedAuthorId = null; // Variable local para almacenar el ID del autor
+
+        // Función para mostrar la lista de autores
+        function mostrarAutores(autores) {
+            const contenidoDiv = document.getElementById('contenido');
+            contenidoDiv.innerHTML = "<h1>Lista de Autores</h1>";
+            autores.forEach((autor, index) => {
+                const link = `<p><a href="#" onclick="seleccionarAutor(${index})">${autor.nombre}</a></p>`;
+                contenidoDiv.innerHTML += link;
+            });
+        }
+
+        // Función para mostrar detalles de un autor
+        function mostrarDetalles(autor) {
+            const contenidoDiv = document.getElementById('contenido');
+            contenidoDiv.innerHTML = `<h1>Detalles del autor</h1>
+                <p><strong>Nombre:</strong> ${autor.nombre}</p>
+                <p><strong>Obra:</strong> ${autor.obra}</p>
+                <p><strong>Concepto:</strong> ${autor.concepto}</p>
+                <p><a href="#" onclick="volverAlListado()">volver al listado de autores</a></p>`;
+        }
+
+        // Función para seleccionar un autor
+        function seleccionarAutor(index) {
+            selectedAuthorId = index; // Guardar el ID del autor seleccionado
+            fetch('../datos/autores.json')
+                .then(response => response.json())
+                .then(autores => {
+                    mostrarDetalles(autores[selectedAuthorId]);
+                })
+                .catch(error => console.error('Error al cargar el archivo JSON:', error));
+        }
+
+        // Función para volver al listado de autores
+        function volverAlListado() {
+            selectedAuthorId = null; // Reiniciar la selección
+            cargarAutores();
+        }
+
+        // Función para cargar los autores
+        function cargarAutores() {
+            fetch('../datos/autores.json')
+                .then(response => response.json())
+                .then(autores => {
+                    mostrarAutores(autores);
+                })
+                .catch(error => console.error('Error al cargar el archivo JSON:', error));
+        }
+
+        // Cargar autores al inicio
+        cargarAutores();
+    </script>
+</body>
+</html>

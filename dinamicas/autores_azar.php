@@ -10,13 +10,7 @@ $autores = array(
   "Zygmunt Bauman"
 );
 
-// Verificamos si se ha pasado un valor 'i' por GET
-if (isset($_GET['i']) && is_numeric($_GET['i']) ) {
-  $i = $_GET['i'];
-} else {
-  // Si no se pasa 'i' o es inválido, seleccionamos un autor al azar
-  $i = array_rand($autores);
-}
+$i = array_rand($autores); // selecciona una clave aleatoria en un array 
 
 ?>
 
@@ -29,7 +23,9 @@ if (isset($_GET['i']) && is_numeric($_GET['i']) ) {
   <h1>Autor de sociología:</h1>
   <p>Autor #<?php echo $i + 1; ?>: <?php echo $autores[$i]; ?></p>
 
-  <p><a href="index.html">Volver al inicio</a></p>
+  <?php
+  require('footer.php');
+  ?>
 
 </body>
 </html>
