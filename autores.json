@@ -1,0 +1,28 @@
+[
+    {
+      "nombre": "Karl Marx",
+      "obra": "El Capital",
+      "concepto": "Lucha de clases"
+    },
+    {
+      "nombre": "Max Weber",
+      "obra": "La ética protestante y el espíritu del capitalismo",
+      "concepto": "Racionalización"
+    },
+    {
+      "nombre": "Émile Durkheim",
+      "obra": "El suicidio",
+      "concepto": "Hecho social"
+    },
+    {
+      "nombre": "Michel Foucault",
+      "obra": "Vigilar y castigar",
+      "concepto": "Poder"
+    },
+    {
+      "nombre": "Pierre Bourdieu",
+      "obra": "La distinción",
+      "concepto": "Habitus"
+    }
+  ]
+  
