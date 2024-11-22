@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación de Votantes</title>
+</head>
+
+<body>
+  <h1>Simulación Social: Votantes</h1>
+
+  <p>que pesa mas en un mundo de 3 votantes? la posición o la tosudez?</p> 
+  <p>2 votantes izq + 1 derecha / todos "termos" (totalmente inflexible)</p>
+  <p>2 votantes izq + 1 derecha / todos "pushovers" (totalmente maleables)</p>
+  <p>2 votantes izq + 1 derecha / pero la minoría es más inflexible</p>
+  <p>1 votantes izq + 1 derecha + 1 centro / todos mayormente flexible</p>
+
+  <div id="content"></div>
+  <button onclick="simular()">Comenzar Simulación</button>
+
+  <script>
+    class Votante {
+      constructor(nombre, posicion, tozudez) {
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.tozudez = tozudez;
+      }
+
+      interactuar(otroVotante) {
+        var mensaje = 'Soy ' + this.nombre + ' (P' + this.posicion + ' T' + this.tozudez + ') ' +
+            'voy a interactuar con ' + otroVotante.nombre + 
+            ' (P ' + otroVotante.posicion + ' T' + otroVotante.tozudez + ' ) <br/>';
+
+        const promedio = (this.posicion + otroVotante.posicion) / 2;
+        this.posicion += (promedio - this.posicion) * (1 - this.tozudez / 10);
+        otroVotante.posicion += (promedio - otroVotante.posicion) * (1 - otroVotante.tozudez / 10);
+
+        var mensaje = mensaje + 'Soy ' + this.nombre + ' y ahora mi posición es ' + this.posicion + '<br/>';
+        return(mensaje);
+      }
+
+      presentarse() {
+        return 'Soy ' + this.nombre + ' (P' + this.posicion.toFixed(1) + ' T' + this.tozudez + ') ';
+      }
+    }
+
+    class Observador {
+      constructor(votantes) {
+        this.votantes = votantes;
+      }
+
+      calcularPromedio() {
+        const opiniones = this.votantes.map(v => v.posicion);
+        const promedio = opiniones.reduce((a, b) => a + b, 0) / opiniones.length;
+        return promedio.toFixed(2); 
+      }
+
+      calcularDesvioEstandar() {
+        const opiniones = this.votantes.map(v => v.posicion);
+        const promedio = opiniones.reduce((a, b) => a + b, 0) / opiniones.length;
+        const variancia = opiniones.reduce((suma, op) => suma + Math.pow(op - promedio, 2), 0) / opiniones.length;
+        return Math.sqrt(variancia).toFixed(2); 
+      }
+
+      calcularRango() {
+        const opiniones = this.votantes.map(v => v.posicion);
+        const maxOpinion = Math.max(...opiniones);
+        const minOpinion = Math.min(...opiniones);
+        return (maxOpinion - minOpinion).toFixed(2);
+      }
+
+      mostrarMetricas() {
+        const promedio = this.calcularPromedio();
+        const desvio = this.calcularDesvioEstandar();
+        const rango = this.calcularRango();
+        return( `
+          <span style="color: red"><strong>Promedio: ${promedio}</strong></span>
+          <span style="color: red">Desvío Estándar: ${desvio}</span>
+          <span style="color: red">Rango de Opiniones: ${rango}</span>
+        `) ;
+      }
+    }
+
+    function imprimir(txt, es_titulo = false) {
+        const content = document.getElementById('content');
+        const cachito = es_titulo ? document.createElement('h3') : document.createElement('p');
+        cachito.innerHTML = txt;
+        content.appendChild(cachito);
+    }
+  
+    function simular() {
+      const votante1 = new Votante('Ana', 0, 10);
+      const votante2 = new Votante('Carlos', 5, 10);
+      const votante3 = new Votante('Lucía', 10, 10);
+
+      const votantes = [votante1, votante2, votante3];
+      const observador = new Observador(votantes);
+
+      imprimir('arrancamos --------------- ', true)
+
+      imprimir(votante1.presentarse());
+      imprimir(votante2.presentarse());
+      imprimir(votante3.presentarse());
+
+      imprimir(observador.mostrarMetricas());
+
+      imprimir('ronda 1 --------------- ', true)
+
+      imprimir(votante1.interactuar(votante2));
+      imprimir(votante2.interactuar(votante3));
+      imprimir(votante3.interactuar(votante1));
+
+      imprimir('ronda 2 --------------- ', true)
+
+      imprimir(votante1.interactuar(votante2));
+      imprimir(votante2.interactuar(votante3));
+      imprimir(votante3.interactuar(votante1));
+
+      imprimir('final --------------- ', true)
+
+      imprimir(votante1.presentarse());
+      imprimir(votante2.presentarse());
+      imprimir(votante3.presentarse());
+
+      imprimir(observador.mostrarMetricas());
+    }
+
+</script>
+</body>
+</html>
