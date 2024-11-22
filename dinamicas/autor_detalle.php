@@ -14,11 +14,11 @@ echo "<body>";
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     // Hay un id, entonces mostrar detalles del autor seleccionado
     $id = $_GET['id'];
-    echo "<h1>Detalles del autor</h1>";
-    echo "<p><strong>Nombre:</strong> " . $autores[$id]['nombre'] . "</p>";
-    echo "<p><strong>Obra:</strong> " . $autores[$id]['obra'] . "</p>";
-    echo "<p><strong>Concepto:</strong> " . $autores[$id]['concepto'] . "</p>";
-    echo "<p><a href='?'>volver al listado de autores</a></p>";
+    echo "<h1>Detalles del autor</h1> \n";
+    echo "<p><strong>Nombre:</strong> " . $autores[$id]['nombre'] . "</p>\n";
+    echo "<p><strong>Obra:</strong> " . $autores[$id]['obra'] . "</p>\n";
+    echo "<p><strong>Concepto:</strong> " . $autores[$id]['concepto'] . "</p>\n";
+    echo "<p><a href='?'>volver al listado de autores</a></p>\n";
 
 } else {
     // Mostrar los nombres de los autores como enlaces

@@ -21,10 +21,10 @@ echo "<tr><th>Obra</th><th>Concepto</th></tr>";
 
 // Recorrer el JSON y mostrar solo las obras y los conceptos
 foreach ($autores as $index => $autor) {
-    echo "<tr onclick='mostrarAutor(\"" . $autor['nombre'] . "\")'>";
+    echo "<tr onclick='mostrarAutor(\"" . $autor['nombre'] . "\")'>\n";
     echo "<td>" . $autor['obra'] . "</td>";
     echo "<td>" . $autor['concepto'] . "</td>";
-    echo "</tr>";
+    echo "</tr>\n";
 }
 
 echo "</table>";

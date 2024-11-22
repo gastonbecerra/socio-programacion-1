@@ -1,6 +1,10 @@
 <?php
+
 // Verificar si se enviaron todos los datos necesarios
-if (isset($_POST['edad']) && isset($_POST['favorito']) && isset($_POST['orden']) && isset($_POST['justa']) && isset($_POST['cohesion'])) {
+if (isset($_POST['edad']) && isset($_POST['favorito']) && 
+    isset($_POST['orden']) && isset($_POST['justa']) && 
+    isset($_POST['cohesion'])) {
+        
     $edad = $_POST['edad'];
     $favorito = $_POST['favorito'];
     $motivo = isset($_POST['motivo']) ? $_POST['motivo'] : 'No especificado';
@@ -24,4 +28,5 @@ if (isset($_POST['edad']) && isset($_POST['favorito']) && isset($_POST['orden'])
 }
 
 include('footer.php');
+
 ?>

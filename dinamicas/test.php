@@ -1,0 +1,1 @@
+<a href="test.php?clave=valor">enlace</a>

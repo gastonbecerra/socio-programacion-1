@@ -10,12 +10,7 @@ $autores = array(
   "Zygmunt Bauman"
 );
 
-// Verificamos si se ha pasado un valor 'i' por GET
-if (isset($_GET['i']) && is_numeric($_GET['i']) ) {
-  $i = $_GET['i'];
-} else {
-  $i = array_rand($autores);
-}
+$i = array_rand($autores);
 
 $contenido = "Autor #" . ($i + 1) . ": " . $autores[$i] . "\n";
 
